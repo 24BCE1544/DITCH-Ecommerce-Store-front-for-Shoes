@@ -9,18 +9,18 @@
 
 // Product Database (Dummy Data)
 const productsDatabase = [
-    { id: 1, name: "Urban Runner", category: "runners", price: 189, sizes: ["7-9", "10-12"], image: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", imgFile: "shoes png/Urban_Runner-removebg-preview 1.png" },
-    { id: 2, name: "Classic Oxford", category: "formal", price: 249, sizes: ["7-9", "10-12", "13-15"], image: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)", imgFile: "shoes png/Dress_formal-removebg-preview 1.png" },
-    { id: 3, name: "Trail Blazer", category: "runners", price: 219, sizes: ["10-12", "13-15"], image: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)", imgFile: "shoes png/Trail_blazer-removebg-preview 1.png" },
-    { id: 4, name: "Metro Boot", category: "boots", price: 279, sizes: ["7-9", "10-12", "13-15"], image: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)", imgFile: "shoes png/Metro_Boot-removebg-preview 1.png" },
-    { id: 5, name: "Casual Loafer", category: "casual", price: 159, sizes: ["7-9", "10-12"], image: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)", imgFile: "shoes png/Casual_loffer-removebg-preview 1.png" },
-    { id: 6, name: "Sport Elite", category: "runners", price: 199, sizes: ["7-9", "10-12", "13-15"], image: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)", imgFile: "shoes png/Sport_elite-removebg-preview 1.png" },
-    { id: 7, name: "Dress Formal", category: "formal", price: 269, sizes: ["10-12", "13-15"], image: "linear-gradient(135deg, #c3cfe2 0%, #c3cfe2 100%)", imgFile: "shoes png/Business_classic-removebg-preview 1.png" },
-    { id: 8, name: "Street Sneaker", category: "casual", price: 139, sizes: ["7-9", "10-12"], image: "linear-gradient(135deg, #fccb90 0%, #d57eeb 100%)", imgFile: "shoes png/Street_sneaker-removebg-preview 1.png" },
-    { id: 9, name: "Hiking Pro", category: "boots", price: 299, sizes: ["10-12", "13-15"], image: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)", imgFile: "shoes png/Hiking_pro-removebg-preview 1.png" },
-    { id: 10, name: "Business Classic", category: "formal", price: 259, sizes: ["7-9", "10-12", "13-15"], image: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)", imgFile: "shoes png/Business_classic-removebg-preview 1.png" },
-    { id: 11, name: "Weekend Walker", category: "casual", price: 169, sizes: ["7-9", "10-12"], image: "linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)", imgFile: "shoes png/Weekend_walker-removebg-preview 1.png" },
-    { id: 12, name: "Marathon Max", category: "runners", price: 229, sizes: ["10-12", "13-15"], image: "linear-gradient(135deg, #fdcbf1 0%, #e6dee9 100%)", imgFile: "shoes png/Marathon_max-removebg-preview 1.png" }
+    { id: 1, name: "Urban Runner", category: "runners", price: 189, sizes: ["7-9", "10-12"], image: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", imgFile: "images/Urban_Runner-removebg-preview 1.png" },
+    { id: 2, name: "Classic Oxford", category: "formal", price: 249, sizes: ["7-9", "10-12", "13-15"], image: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)", imgFile: "images/Dress_formal-removebg-preview 1.png" },
+    { id: 3, name: "Trail Blazer", category: "runners", price: 219, sizes: ["10-12", "13-15"], image: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)", imgFile: "images/Trail_blazer-removebg-preview 1.png" },
+    { id: 4, name: "Metro Boot", category: "boots", price: 279, sizes: ["7-9", "10-12", "13-15"], image: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)", imgFile: "images/Metro_Boot-removebg-preview 1.png" },
+    { id: 5, name: "Casual Loafer", category: "casual", price: 159, sizes: ["7-9", "10-12"], image: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)", imgFile: "images/Casual_loffer-removebg-preview 1.png" },
+    { id: 6, name: "Sport Elite", category: "runners", price: 199, sizes: ["7-9", "10-12", "13-15"], image: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)", imgFile: "images/Sport_elite-removebg-preview 1.png" },
+    { id: 7, name: "Dress Formal", category: "formal", price: 269, sizes: ["10-12", "13-15"], image: "linear-gradient(135deg, #c3cfe2 0%, #c3cfe2 100%)", imgFile: "images/Business_classic-removebg-preview 1.png" },
+    { id: 8, name: "Street Sneaker", category: "casual", price: 139, sizes: ["7-9", "10-12"], image: "linear-gradient(135deg, #fccb90 0%, #d57eeb 100%)", imgFile: "images/Street_sneaker-removebg-preview 1.png" },
+    { id: 9, name: "Hiking Pro", category: "boots", price: 299, sizes: ["10-12", "13-15"], image: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)", imgFile: "images/Hiking_pro-removebg-preview 1.png" },
+    { id: 10, name: "Business Classic", category: "formal", price: 259, sizes: ["7-9", "10-12", "13-15"], image: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)", imgFile: "images/Business_classic-removebg-preview 1.png" },
+    { id: 11, name: "Weekend Walker", category: "casual", price: 169, sizes: ["7-9", "10-12"], image: "linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)", imgFile: "images/Weekend_walker-removebg-preview 1.png" },
+    { id: 12, name: "Marathon Max", category: "runners", price: 229, sizes: ["10-12", "13-15"], image: "linear-gradient(135deg, #fdcbf1 0%, #e6dee9 100%)", imgFile: "images/Marathon_max-removebg-preview 1.png" }
 ];
 
 // Shopping Cart (stored in localStorage)
@@ -30,19 +30,19 @@ let cart = [];
 const customizeModelAssets = {
     'urban-runner': {
         image: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        imgFile: 'shoes png/Urban_Runner-removebg-preview 1.png'
+        imgFile: 'images/Urban_Runner-removebg-preview 1.png'
     },
     'classic-oxford': {
         image: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-        imgFile: 'shoes png/Dress_formal-removebg-preview 1.png'
+        imgFile: 'images/Dress_formal-removebg-preview 1.png'
     },
     'trail-blazer': {
         image: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-        imgFile: 'shoes png/Trail_blazer-removebg-preview 1.png'
+        imgFile: 'images/Trail_blazer-removebg-preview 1.png'
     },
     'metro-boot': {
         image: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-        imgFile: 'shoes png/Metro_Boot-removebg-preview 1.png'
+        imgFile: 'images/Metro_Boot-removebg-preview 1.png'
     }
 };
 
@@ -65,7 +65,7 @@ function getCartItemImageSrc(item) {
             return p.imgFile;
         }
     }
-    return 'shoes png/Urban_Runner-removebg-preview 1.png';
+    return 'images/Urban_Runner-removebg-preview 1.png';
 }
 
 // Promo Codes
@@ -308,7 +308,7 @@ function createProductCard(product) {
     card.className = 'product-card';
     card.setAttribute('data-product-id', product.id);
     
-    const shoeImgFile = product.imgFile || 'shoes png/Urban_Runner-removebg-preview 1.png';
+    const shoeImgFile = product.imgFile || 'images/Urban_Runner-removebg-preview 1.png';
     
     card.innerHTML = `
         <div class="product-image">
@@ -536,7 +536,7 @@ function updatePreview(modelValue) {
     
     // Update image
     if (customShoeImg) {
-        customShoeImg.src = 'shoes png/' + model.file;
+        customShoeImg.src = 'images/' + model.file;
         customShoeImg.style.opacity = '1';
     }
     
@@ -997,7 +997,7 @@ function setupQuickAdd() {
                 price: price,
                 category: category,
                 image: match ? match.image : 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-                imgFile: match ? match.imgFile : 'shoes png/Casual_loffer-removebg-preview 1.png'
+                imgFile: match ? match.imgFile : 'images/Casual_loffer-removebg-preview 1.png'
             };
             
             addToCart(item);

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - DITCH Footwear</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">D</span>
+                <div class="logo-text">
+                    <span class="brand-name">DITCH</span>
+                    <span class="brand-subtitle">Footwear</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="customize.html">Customize</a></li>
+                <li><a href="repair.html">Repair & Warranty</a></li>
+                <li><a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">SHOP COLLECTION</h1>
+            <p class="page-subtitle">Premium footwear built to last a lifetime</p>
+        </div>
+    </section>
+
+    <!-- Shop Content -->
+    <section class="shop-section">
+        <div class="container">
+            <div class="shop-layout">
+                <!-- Filters Sidebar -->
+                <aside class="shop-filters">
+                    <div class="filter-group">
+                        <h3 class="filter-title">CATEGORY</h3>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="all" checked data-filter-type="category">
+                                <span>All Shoes</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="runners" data-filter-type="category">
+                                <span>Runners</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="casual" data-filter-type="category">
+                                <span>Casual</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="formal" data-filter-type="category">
+                                <span>Formal</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="boots" data-filter-type="category">
+                                <span>Boots</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3 class="filter-title">PRICE RANGE</h3>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="price" value="all" checked data-filter-type="price">
+                                <span>All Prices</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="price" value="0-150" data-filter-type="price">
+                                <span>Under $150</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="price" value="150-250" data-filter-type="price">
+                                <span>$150 - $250</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="price" value="250-500" data-filter-type="price">
+                                <span>$250+</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3 class="filter-title">SIZE</h3>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="size" value="all" checked data-filter-type="size">
+                                <span>All Sizes</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="size" value="7-9" data-filter-type="size">
+                                <span>7 - 9</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="size" value="10-12" data-filter-type="size">
+                                <span>10 - 12</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="size" value="13-15" data-filter-type="size">
+                                <span>13+</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-secondary btn-full" id="resetFilters">Reset Filters</button>
+                </aside>
+
+                <!-- Products Grid -->
+                <div class="shop-products">
+                    <div class="shop-header">
+                        <p class="results-count"><span id="productCount">12</span> products</p>
+                        <div class="sort-options">
+                            <label for="sortSelect">Sort by:</label>
+                            <select id="sortSelect">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="name">Name A-Z</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products will be dynamically rendered here by JavaScript -->
+                    </div>
+
+                    <div class="no-results" id="noResults" style="display: none;">
+                        <p>No products match your filters. Try adjusting your selection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">D</span>
+                        <div class="logo-text">
+                            <span class="brand-name">DITCH</span>
+                            <span class="brand-subtitle">Footwear</span>
+                        </div>
+                    </div>
+                    <p class="footer-tagline">You ditch. They don't.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html">All Products</a></li>
+                        <li><a href="shop.html#runners">Runners</a></li>
+                        <li><a href="shop.html#casual">Casual</a></li>
+                        <li><a href="shop.html#formal">Formal</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="customize.html">Customization</a></li>
+                        <li><a href="repair.html">Repair Program</a></li>
+                        <li><a href="repair.html#warranty">Warranty Info</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#sustainability">Sustainability</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 DITCH Footwear. All rights reserved</p>
+                <p class="disclaimer">This is an educational project demonstrating web programming concepts. Not a real commercial platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

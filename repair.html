@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repair & Warranty - DITCH Footwear</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">D</span>
+                <div class="logo-text">
+                    <span class="brand-name">DITCH</span>
+                    <span class="brand-subtitle">Footwear</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="customize.html">Customize</a></li>
+                <li><a href="repair.html" class="active">Repair & Warranty</a></li>
+                <li><a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">REPAIR & WARRANTY</h1>
+            <p class="page-subtitle">We stand behind every pair. Forever.</p>
+        </div>
+    </section>
+
+    <!-- Warranty Info Section -->
+    <section class="warranty-info" id="warranty">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">⚡</div>
+                    <h3>Lifetime Warranty</h3>
+                    <p>All DITCH footwear comes with a lifetime warranty covering structural defects and workmanship issues. We believe in building shoes that last.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🔧</div>
+                    <h3>Repair Program</h3>
+                    <p>From sole replacement to stitching repairs, our expert craftspeople can restore your shoes to like-new condition. Repairs typically take 2-3 weeks.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">♻️</div>
+                    <h3>Sustainability</h3>
+                    <p>By repairing rather than replacing, you're helping reduce waste. On average, repaired DITCH shoes last 5+ years longer than disposable alternatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Repair Request Form -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <h2 class="section-title">REQUEST A REPAIR</h2>
+                <p class="section-intro">Fill out the form below to submit your repair request. We'll review it and get back to you within 2 business days.</p>
+
+                <form id="repairForm" class="repair-form">
+                    <!-- Customer Information -->
+                    <fieldset class="form-fieldset">
+                        <legend>Customer Information</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="1234567890" required>
+                                <span class="input-hint">10 digits, no spaces or dashes</span>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Product Information -->
+                    <fieldset class="form-fieldset">
+                        <legend>Product Information</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="orderNumber">Order Number *</label>
+                                <input type="text" id="orderNumber" name="orderNumber" placeholder="DTC-2024-XXXXX" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="purchaseDate">Purchase Date *</label>
+                                <input type="date" id="purchaseDate" name="purchaseDate" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productModel">Product Model *</label>
+                            <select id="productModel" name="productModel" required>
+                                <option value="">Select your shoe model</option>
+                                <option value="urban-runner">Urban Runner</option>
+                                <option value="classic-oxford">Classic Oxford</option>
+                                <option value="trail-blazer">Trail Blazer</option>
+                                <option value="metro-boot">Metro Boot</option>
+                                <option value="casual-loafer">Casual Loafer</option>
+                                <option value="sport-elite">Sport Elite</option>
+                                <option value="other">Other / Custom</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <!-- Repair Details -->
+                    <fieldset class="form-fieldset">
+                        <legend>Repair Details</legend>
+                        
+                        <div class="form-group">
+                            <label>Type of Repair Needed *</label>
+                            <div class="checkbox-list">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="repairType" value="sole-replacement">
+                                    <span>Sole Replacement</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="repairType" value="stitching-repair">
+                                    <span>Stitching Repair</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="repairType" value="heel-replacement">
+                                    <span>Heel Replacement</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="repairType" value="eyelet-repair">
+                                    <span>Eyelet/Lace Repair</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="repairType" value="waterproofing">
+                                    <span>Re-waterproofing</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="repairType" value="cleaning">
+                                    <span>Deep Cleaning & Conditioning</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="repairType" value="other">
+                                    <span>Other (describe below)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="issueDescription">Describe the Issue *</label>
+                            <textarea id="issueDescription" name="issueDescription" rows="6" required placeholder="Please provide detailed information about the damage or issue you're experiencing with your shoes..."></textarea>
+                            <span class="input-hint">Minimum 20 characters</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Is this a warranty claim?</label>
+                            <div class="radio-list">
+                                <label class="radio-option">
+                                    <input type="radio" name="warrantyStatus" value="yes" required>
+                                    <span>Yes - Manufacturing defect</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="warrantyStatus" value="no">
+                                    <span>No - Normal wear and tear</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="warrantyStatus" value="unsure">
+                                    <span>Not sure</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Shipping Information -->
+                    <fieldset class="form-fieldset">
+                        <legend>Shipping Information</legend>
+                        
+                        <div class="form-group">
+                            <label for="address">Street Address *</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="state">State *</label>
+                                <select id="state" name="state" required>
+                                    <option value="">Select state</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="CA">California</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="NY">New York</option>
+                                    <option value="TX">Texas</option>
+                                    <!-- Add more states as needed -->
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="zipCode">ZIP Code *</label>
+                                <input type="text" id="zipCode" name="zipCode" pattern="[0-9]{5}" placeholder="12345" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="shippingMethod">Shipping Method *</label>
+                            <select id="shippingMethod" name="shippingMethod" required>
+                                <option value="">Select shipping method</option>
+                                <option value="standard">Standard (5-7 business days) - Free</option>
+                                <option value="expedited">Expedited (2-3 business days) - $15</option>
+                                <option value="express">Express (Next day) - $30</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <!-- Additional Notes -->
+                    <fieldset class="form-fieldset">
+                        <legend>Additional Information (Optional)</legend>
+                        
+                        <div class="form-group">
+                            <label for="additionalNotes">Any additional notes or special requests?</label>
+                            <textarea id="additionalNotes" name="additionalNotes" rows="4" placeholder="Let us know if you have any special requirements or questions..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-option consent-checkbox">
+                                <input type="checkbox" name="consent" id="consent" required>
+                                <span>I agree to the repair terms and understand that repair costs will be communicated before work begins. Warranty repairs are free; non-warranty repairs are subject to pricing. *</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-full">SUBMIT REPAIR REQUEST</button>
+                        <button type="reset" class="btn btn-secondary btn-full">CLEAR FORM</button>
+                    </div>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="formSuccess" class="form-success" style="display: none;">
+                    <div class="success-icon">✓</div>
+                    <h3>Repair Request Submitted!</h3>
+                    <p>Thank you for your submission. We've received your repair request and will review it within 2 business days. You'll receive an email confirmation shortly with your request number and next steps.</p>
+                    <button class="btn btn-primary" onclick="location.reload()">Submit Another Request</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How long does a repair take?</h4>
+                    <p>Most repairs are completed within 2-3 weeks from the day we receive your shoes. Complex custom work may take longer, and we'll notify you of any delays.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What's covered under warranty?</h4>
+                    <p>Our lifetime warranty covers manufacturing defects and workmanship issues including sole separation, stitching failures, and material defects. Normal wear and tear is not covered but can be repaired for a fee.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How much do repairs cost?</h4>
+                    <p>Warranty repairs are free. Non-warranty repairs range from $30-$120 depending on the type of work needed. We'll provide a quote before starting any paid work.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I track my repair?</h4>
+                    <p>Yes! Once we receive your shoes, you'll get a tracking number to monitor your repair status online. We'll email you at each stage of the process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">D</span>
+                        <div class="logo-text">
+                            <span class="brand-name">DITCH</span>
+                            <span class="brand-subtitle">Footwear</span>
+                        </div>
+                    </div>
+                    <p class="footer-tagline">You ditch. They don't.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html">All Products</a></li>
+                        <li><a href="shop.html#runners">Runners</a></li>
+                        <li><a href="shop.html#casual">Casual</a></li>
+                        <li><a href="shop.html#formal">Formal</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="customize.html">Customization</a></li>
+                        <li><a href="repair.html">Repair Program</a></li>
+                        <li><a href="repair.html#warranty">Warranty Info</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#sustainability">Sustainability</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 DITCH Footwear. A Web Programming Project.</p>
+                <p class="disclaimer">This is an educational project demonstrating web programming concepts. Not a real commercial platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

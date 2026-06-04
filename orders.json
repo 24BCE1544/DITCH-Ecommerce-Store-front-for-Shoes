@@ -1,0 +1,18 @@
+[
+  {
+    "orderId": 944069,
+    "totalPrice": "$283.92",
+    "items": [
+      {
+        "id": 2,
+        "name": "Classic Oxford",
+        "price": 249,
+        "category": "formal",
+        "image": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        "imgFile": "shoes png/Dress_formal-removebg-preview 1.png",
+        "quantity": 1
+      }
+    ],
+    "timestamp": "2026-04-01T18:24:01.660Z"
+  }
+]

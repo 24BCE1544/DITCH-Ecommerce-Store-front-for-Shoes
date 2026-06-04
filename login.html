@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Login - DITCH Footwear</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">D</span>
+                <div class="logo-text">
+                    <span class="brand-name">DITCH</span>
+                    <span class="brand-subtitle">Footwear</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">← Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container auth-page-inner">
+        <div class="auth-card">
+            <h2 class="auth-title">Customer sign in</h2>
+            <p class="auth-sub">You need a registered account. <a href="signup.html" class="inline-link">Sign up first</a>.</p>
+            <p id="formBanner" class="auth-banner" hidden></p>
+            <form id="loginForm" novalidate>
+                <div class="auth-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" autocomplete="username" required class="auth-input">
+                    <span class="field-error" id="emailError" aria-live="polite"></span>
+                </div>
+                <div class="auth-field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" autocomplete="current-password" required class="auth-input">
+                    <span class="field-hint">Same rules as sign up: 8+ chars, upper, lower, number.</span>
+                    <span class="field-error" id="passwordError" aria-live="polite"></span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full auth-submit">SIGN IN</button>
+            </form>
+            <p class="auth-footer">
+                New here? <a href="signup.html" class="inline-link">Create an account</a><br>
+                <a href="admin-login.html" class="inline-link">Admin sign in</a> · <a href="admin-signup.html" class="inline-link">Admin registration</a>
+            </p>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+    <script>
+        (function () {
+            const form = document.getElementById('loginForm');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const banner = document.getElementById('formBanner');
+
+            attachEmailValidation(email, emailError);
+            attachPasswordValidation(password, passwordError);
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                banner.hidden = true;
+                emailError.textContent = '';
+                passwordError.textContent = '';
+
+                const eVal = validateEmailFormat(email.value);
+                const pVal = validatePasswordFormat(password.value);
+                if (!eVal.ok) {
+                    emailError.textContent = eVal.message;
+                    email.classList.add('auth-input-invalid');
+                }
+                if (!pVal.ok) {
+                    passwordError.textContent = pVal.message;
+                    password.classList.add('auth-input-invalid');
+                }
+                if (!eVal.ok || !pVal.ok) {
+                    return;
+                }
+
+                const res = loginCustomer(email.value, password.value);
+                if (!res.ok) {
+                    banner.textContent = res.message;
+                    banner.className = 'auth-banner auth-banner-error';
+                    banner.hidden = false;
+                    return;
+                }
+                window.location.href = 'index.html';
+            });
+        })();
+    </script>
+</body>
+</html>

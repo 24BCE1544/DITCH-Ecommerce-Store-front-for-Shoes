@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Registration - DITCH Footwear</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page auth-page-dark">
+    <div class="container auth-page-inner">
+        <div class="auth-card auth-card-dark">
+            <div class="logo auth-logo-center">
+                <span class="logo-icon">D</span>
+                <div class="logo-text">
+                    <span class="brand-name">ADMIN</span>
+                    <span class="brand-subtitle">Register</span>
+                </div>
+            </div>
+            <p class="auth-sub auth-sub-dark">Create an admin account first; you can only sign in after registering.</p>
+            <p id="formBanner" class="auth-banner" hidden></p>
+            <form id="adminSignupForm" novalidate>
+                <div class="auth-field">
+                    <label for="email" class="label-dark">Work email</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required class="auth-input auth-input-dark">
+                    <span class="field-error field-error-on-dark" id="emailError" aria-live="polite"></span>
+                </div>
+                <div class="auth-field">
+                    <label for="password" class="label-dark">Password</label>
+                    <input type="password" id="password" name="password" autocomplete="new-password" required class="auth-input auth-input-dark" minlength="8">
+                    <span class="field-hint field-hint-dark">8+ characters with upper, lower, and a number.</span>
+                    <span class="field-error field-error-on-dark" id="passwordError" aria-live="polite"></span>
+                </div>
+                <div class="auth-field">
+                    <label for="confirm" class="label-dark">Confirm password</label>
+                    <input type="password" id="confirm" name="confirm" autocomplete="new-password" required class="auth-input auth-input-dark">
+                    <span class="field-error field-error-on-dark" id="confirmError" aria-live="polite"></span>
+                </div>
+                <button type="submit" class="btn btn-full auth-submit auth-btn-cyan">REGISTER ADMIN</button>
+            </form>
+            <p class="auth-footer auth-footer-dark">
+                <a href="admin-login.html" class="inline-link inline-link-dark">Already registered? Sign in</a><br>
+                <a href="signup.html" class="inline-link inline-link-dark">Customer sign up</a> · <a href="index.html" class="inline-link inline-link-dark">Public site</a>
+            </p>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+    <script>
+        (function () {
+            const form = document.getElementById('adminSignupForm');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirm = document.getElementById('confirm');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const confirmError = document.getElementById('confirmError');
+            const banner = document.getElementById('formBanner');
+
+            attachEmailValidation(email, emailError);
+            attachPasswordValidation(password, passwordError);
+
+            confirm.addEventListener('blur', function () {
+                if (confirm.value && password.value !== confirm.value) {
+                    confirmError.textContent = 'Passwords do not match.';
+                    confirm.classList.add('auth-input-invalid');
+                } else {
+                    confirmError.textContent = '';
+                    confirm.classList.remove('auth-input-invalid');
+                }
+            });
+            confirm.addEventListener('input', function () {
+                if (confirmError.textContent && password.value === confirm.value) {
+                    confirmError.textContent = '';
+                    confirm.classList.remove('auth-input-invalid');
+                }
+            });
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                banner.hidden = true;
+                emailError.textContent = '';
+                passwordError.textContent = '';
+                confirmError.textContent = '';
+
+                const eVal = validateEmailFormat(email.value);
+                const pVal = validatePasswordFormat(password.value);
+                if (!eVal.ok) {
+                    emailError.textContent = eVal.message;
+                    email.classList.add('auth-input-invalid');
+                }
+                if (!pVal.ok) {
+                    passwordError.textContent = pVal.message;
+                    password.classList.add('auth-input-invalid');
+                }
+                if (password.value !== confirm.value) {
+                    confirmError.textContent = 'Passwords do not match.';
+                    confirm.classList.add('auth-input-invalid');
+                }
+                if (!eVal.ok || !pVal.ok || password.value !== confirm.value) {
+                    return;
+                }
+
+                const res = registerAdmin(email.value, password.value, confirm.value);
+                if (!res.ok) {
+                    banner.textContent = res.message;
+                    banner.className = 'auth-banner auth-banner-error auth-banner-on-dark';
+                    banner.hidden = false;
+                    return;
+                }
+                banner.textContent = 'Admin account created. Redirecting to sign in…';
+                banner.className = 'auth-banner auth-banner-success auth-banner-on-dark';
+                banner.hidden = false;
+                setTimeout(function () {
+                    window.location.href = 'admin-login.html';
+                }, 800);
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - DITCH Footwear</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">D</span>
+                <div class="logo-text">
+                    <span class="brand-name">DITCH</span>
+                    <span class="brand-subtitle">Footwear</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="customize.html">Customize</a></li>
+                <li><a href="repair.html">Repair & Warranty</a></li>
+                <li><a href="cart.html" class="active cart-link">Cart <span class="cart-count">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">SHOPPING CART</h1>
+            <p class="page-subtitle">Review your selections</p>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-layout">
+                <!-- Cart Items -->
+                <div class="cart-items">
+                    <div id="cartItemsContainer">
+                        <!-- Cart items will be dynamically rendered here -->
+                    </div>
+
+                    <!-- Empty Cart Message -->
+                    <div id="emptyCart" class="empty-cart">
+                        <div class="empty-icon">🛒</div>
+                        <h3>Your cart is empty</h3>
+                        <p>Start shopping to add items to your cart</p>
+                        <div class="empty-actions">
+                            <a href="shop.html" class="btn btn-primary">BROWSE COLLECTION</a>
+                            <a href="customize.html" class="btn btn-secondary">CUSTOMIZE A PAIR</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3 class="summary-title">ORDER SUMMARY</h3>
+                    
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotalAmount">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span id="shippingAmount">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (8%):</span>
+                            <span id="taxAmount">$0.00</span>
+                        </div>
+                        <div class="summary-row summary-total">
+                            <span>Total:</span>
+                            <span id="totalAmount">$0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="promo-code">
+                        <h4>Have a promo code?</h4>
+                        <div class="promo-input">
+                            <input type="text" id="promoCode" placeholder="Enter code">
+                            <button class="btn btn-secondary" id="applyPromo">Apply</button>
+                        </div>
+                        <p id="promoMessage" class="promo-message"></p>
+                    </div>
+
+                    <div class="shipping-options">
+                        <h4>Shipping Method</h4>
+                        <div class="radio-list">
+                            <label class="radio-option">
+                                <input type="radio" name="shipping" value="15" checked>
+                                <span>
+                                    <strong>Standard Shipping</strong>
+                                    <small>5-7 business days - $15</small>
+                                </span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="shipping" value="30">
+                                <span>
+                                    <strong>Express Shipping</strong>
+                                    <small>2-3 business days - $30</small>
+                                </span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="shipping" value="50">
+                                <span>
+                                    <strong>Next Day Delivery</strong>
+                                    <small>1 business day - $50</small>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-full" id="checkoutBtn" disabled>PROCEED TO CHECKOUT</button>
+                    
+                    <div class="payment-icons">
+                        <span class="payment-icon">💳</span>
+                        <span class="payment-icon">🔒</span>
+                        <span class="payment-icon">✓</span>
+                    </div>
+                    <p class="secure-note">Secure checkout - Your information is protected</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section class="recommendations">
+        <div class="container">
+            <h2 class="section-title">YOU MIGHT ALSO LIKE</h2>
+            
+            <div class="recommendations-grid">
+                <div class="product-card" data-product-id="rec-1">
+                    <div class="product-image">
+                        <div class="product-placeholder" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                            <span class="product-name">CASUAL<br>LOAFER</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Casual Loafer</h3>
+                        <p class="product-category">Casual</p>
+                        <p class="price">$159</p>
+                    </div>
+                    <button class="btn btn-secondary btn-full quick-add" data-name="Casual Loafer" data-price="159" data-category="casual">Quick Add</button>
+                </div>
+
+                <div class="product-card" data-product-id="rec-2">
+                    <div class="product-image">
+                        <div class="product-placeholder" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                            <span class="product-name">SPORT<br>ELITE</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sport Elite</h3>
+                        <p class="product-category">Runners</p>
+                        <p class="price">$199</p>
+                    </div>
+                    <button class="btn btn-secondary btn-full quick-add" data-name="Sport Elite" data-price="199" data-category="runners">Quick Add</button>
+                </div>
+
+                <div class="product-card" data-product-id="rec-3">
+                    <div class="product-image">
+                        <div class="product-placeholder" style="background: linear-gradient(135deg, #c3cfe2 0%, #c3cfe2 100%);">
+                            <span class="product-name">DRESS<br>FORMAL</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dress Formal</h3>
+                        <p class="product-category">Formal</p>
+                        <p class="price">$269</p>
+                    </div>
+                    <button class="btn btn-secondary btn-full quick-add" data-name="Dress Formal" data-price="269" data-category="formal">Quick Add</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Modal (Hidden by default) -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-icon">✓</div>
+            <h2>Order Simulation</h2>
+            <p>This is a demonstration project. In a real e-commerce site, you would now be directed to a secure payment gateway.</p>
+            <div class="order-details">
+                <h3>Your Order Summary</h3>
+                <p><strong>Total Items:</strong> <span id="modalItemCount">0</span></p>
+                <p><strong>Subtotal:</strong> <span id="modalSubtotal">$0.00</span></p>
+                <p><strong>Shipping:</strong> <span id="modalShipping">$0.00</span></p>
+                <p><strong>Tax:</strong> <span id="modalTax">$0.00</span></p>
+                <p class="modal-total"><strong>Total:</strong> <span id="modalTotal">$0.00</span></p>
+            </div>
+            <button class="btn btn-primary btn-full" id="simulateOrder">SIMULATE ORDER PLACEMENT</button>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-icon success" aria-hidden="true">✓</div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for your order. Your order number is <strong>#DTC-2024-<span id="orderNumber"></span></strong></p>
+            <p>In a real application, you would receive a confirmation email and tracking information.</p>
+            <button class="btn btn-primary" onclick="window.location.href='index.html'">RETURN TO HOME</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">D</span>
+                        <div class="logo-text">
+                            <span class="brand-name">DITCH</span>
+                            <span class="brand-subtitle">Footwear</span>
+                        </div>
+                    </div>
+                    <p class="footer-tagline">You ditch. They don't.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html">All Products</a></li>
+                        <li><a href="shop.html#runners">Runners</a></li>
+                        <li><a href="shop.html#casual">Casual</a></li>
+                        <li><a href="shop.html#formal">Formal</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="customize.html">Customization</a></li>
+                        <li><a href="repair.html">Repair Program</a></li>
+                        <li><a href="repair.html#warranty">Warranty Info</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#sustainability">Sustainability</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 DITCH Footwear. A Web Programming Project.</p>
+                <p class="disclaimer">This is an educational project demonstrating web programming concepts. Not a real commercial platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

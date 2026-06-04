@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .admin-nav { background: var(--color-black); padding: 1rem 0; color: white; display: flex; justify-content: space-between; align-items: center; }
+        .admin-nav a { color: var(--color-cyan); text-decoration: none; font-weight: bold; }
+        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+        .board { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow-sm); height: 75vh; overflow-y: auto; }
+        .board h2 { margin-bottom: 1.5rem; border-bottom: 2px solid var(--color-gray-light); padding-bottom: 0.5rem; }
+        .log-item { background: var(--color-off-white); padding: 1rem; border-radius: 4px; margin-bottom: 1rem; font-size: 0.9rem; border-left: 4px solid #ccc; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .log-item.repair { border-left-color: var(--color-pink); }
+        .log-item.order { border-left-color: var(--color-cyan); }
+    </style>
+</head>
+<body style="background: #f4f4f4;">
+    <div class="admin-nav">
+        <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="logo-icon" style="color: black; background: white; width: 30px; height: 30px; font-size: 1.2rem;">D</span>
+                <strong>SECURE DATACENTER</strong>
+            </div>
+            <a href="#" id="adminLogout">Log Out</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="dashboard-grid">
+            <div class="board">
+                <h2>Repair & Warranty Forms</h2>
+                <div id="repairLogs">Loading database connections...</div>
+            </div>
+            
+            <div class="board">
+                <h2>Orders Placed</h2>
+                <div id="orderLogs">Loading database connections...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        if (localStorage.getItem('adminLoggedIn') !== 'true') {
+            window.location.href = 'admin-login.html';
+        }
+
+        document.getElementById('adminLogout').addEventListener('click', function (e) {
+            e.preventDefault();
+            logoutAdmin();
+            window.location.href = 'admin-login.html';
+        });
+
+        function apiOfflineMessage() {
+            return (
+                '<div style="color:#333;line-height:1.65;">' +
+                '<p style="color:#b91c1c;font-weight:600;margin-bottom:0.5rem;">Cannot connect to the local API on port 3001.</p>' +
+                '<p style="font-size:0.9rem;color:#555;margin:0 0 0.5rem 0;">The admin panel needs <code style="background:#f0f0f0;padding:0.1rem 0.35rem;border-radius:3px;">server.js</code> running. Open a terminal in your project folder and run:</p>' +
+                '<pre style="background:#f0f0f0;padding:0.75rem;border-radius:4px;margin:0;font-size:0.85rem;overflow:auto;">npm run api</pre>' +
+                '<p style="font-size:0.82rem;color:#777;margin-top:0.65rem;">Keep that window open, then refresh this page. (<code>npm start</code> only serves pages — it does not start this API.)</p>' +
+                '</div>'
+            );
+        }
+
+        async function fetchLogs() {
+            try {
+                const res1 = await fetch('http://localhost:3001/api/repair');
+                const repairs = await res1.json();
+                if (!res1.ok || !Array.isArray(repairs)) {
+                    throw new Error('bad response');
+                }
+                const list = repairs.slice().reverse();
+                document.getElementById('repairLogs').innerHTML = list.map(log => `
+                    <div class="log-item repair">
+                        <strong style="color: var(--color-pink); font-size: 1.1rem;">${log.id}</strong>
+                        <p style="margin: 0.2rem 0; color: gray;">${new Date(log.timestamp).toLocaleString()}</p>
+                        <div style="margin: 0.5rem 0;"><strong>${log.firstName} ${log.lastName}</strong> (${log.email})</div>
+                        <p style="margin-bottom: 0.5rem;">Model: ${log.productModel} | Order: ${log.orderNumber}</p>
+                        <p style="background: white; padding: 0.5rem; border-radius: 4px;">"${log.issueDescription}"</p>
+                    </div>
+                `).join('') || '<p>No repair logs found.</p>';
+            } catch (e) {
+                document.getElementById('repairLogs').innerHTML = apiOfflineMessage();
+            }
+
+            try {
+                const res2 = await fetch('http://localhost:3001/api/order');
+                const orders = await res2.json();
+                if (!res2.ok || !Array.isArray(orders)) {
+                    throw new Error('bad response');
+                }
+                const list = orders.slice().reverse();
+                document.getElementById('orderLogs').innerHTML = list.map(log => `
+                    <div class="log-item order">
+                        <strong style="color: var(--color-cyan); font-size: 1.1rem;">Order #${log.orderId}</strong>
+                        <p style="margin: 0.2rem 0; color: gray;">${new Date(log.timestamp).toLocaleString()}</p>
+                        <div style="margin: 0.5rem 0;"><strong>Total Value: ${log.totalPrice}</strong></div>
+                        <div style="background: white; padding: 0.5rem; border-radius: 4px; margin-top: 0.5rem;">
+                            <strong>Items Packaged:</strong> <br> ${log.items.map(i => `&bull; ${i.quantity}x ${i.name} ($${i.price})`).join('<br>')}
+                        </div>
+                    </div>
+                `).join('') || '<p>No orders placed yet.</p>';
+            } catch (e) {
+                document.getElementById('orderLogs').innerHTML = apiOfflineMessage();
+            }
+        }
+        
+        fetchLogs();
+        setInterval(fetchLogs, 10000); // Live poll the server automatically 
+    </script>
+</body>
+</html>

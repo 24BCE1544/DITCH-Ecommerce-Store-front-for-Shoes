@@ -1,0 +1,25 @@
+{
+  "name": "ditch-footwear",
+  "version": "1.0.0",
+  "description": "DITCH - Premium footwear e-commerce website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server .",
+    "api": "node server.js"
+  },
+  "keywords": [
+    "footwear",
+    "ecommerce",
+    "shoes"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}

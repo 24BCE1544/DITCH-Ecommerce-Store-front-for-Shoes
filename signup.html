@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - DITCH Footwear</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">D</span>
+                <div class="logo-text">
+                    <span class="brand-name">DITCH</span>
+                    <span class="brand-subtitle">Footwear</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">← Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container auth-page-inner">
+        <div class="auth-card">
+            <h2 class="auth-title">Create customer account</h2>
+            <p class="auth-sub">Sign up once, then use the same email and password to sign in.</p>
+            <p id="formBanner" class="auth-banner" hidden></p>
+            <form id="signupForm" novalidate>
+                <div class="auth-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required class="auth-input">
+                    <span class="field-error" id="emailError" aria-live="polite"></span>
+                </div>
+                <div class="auth-field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" autocomplete="new-password" required class="auth-input" minlength="8">
+                    <span class="field-hint">8+ characters with upper, lower, and a number.</span>
+                    <span class="field-error" id="passwordError" aria-live="polite"></span>
+                </div>
+                <div class="auth-field">
+                    <label for="confirm">Confirm password</label>
+                    <input type="password" id="confirm" name="confirm" autocomplete="new-password" required class="auth-input">
+                    <span class="field-error" id="confirmError" aria-live="polite"></span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full auth-submit">CREATE ACCOUNT</button>
+            </form>
+            <p class="auth-footer">
+                Already registered? <a href="login.html" class="inline-link">Sign in</a><br>
+                <a href="admin-signup.html" class="inline-link">Admin registration</a> · <a href="admin-login.html" class="inline-link">Admin sign in</a>
+            </p>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+    <script>
+        (function () {
+            const form = document.getElementById('signupForm');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirm = document.getElementById('confirm');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const confirmError = document.getElementById('confirmError');
+            const banner = document.getElementById('formBanner');
+
+            attachEmailValidation(email, emailError);
+            attachPasswordValidation(password, passwordError);
+
+            confirm.addEventListener('blur', function () {
+                if (confirm.value && password.value !== confirm.value) {
+                    confirmError.textContent = 'Passwords do not match.';
+                    confirm.classList.add('auth-input-invalid');
+                } else {
+                    confirmError.textContent = '';
+                    confirm.classList.remove('auth-input-invalid');
+                }
+            });
+            confirm.addEventListener('input', function () {
+                if (confirmError.textContent && password.value === confirm.value) {
+                    confirmError.textContent = '';
+                    confirm.classList.remove('auth-input-invalid');
+                }
+            });
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                banner.hidden = true;
+                emailError.textContent = '';
+                passwordError.textContent = '';
+                confirmError.textContent = '';
+                email.classList.remove('auth-input-invalid');
+                password.classList.remove('auth-input-invalid');
+                confirm.classList.remove('auth-input-invalid');
+
+                const eVal = validateEmailFormat(email.value);
+                const pVal = validatePasswordFormat(password.value);
+                if (!eVal.ok) {
+                    emailError.textContent = eVal.message;
+                    email.classList.add('auth-input-invalid');
+                }
+                if (!pVal.ok) {
+                    passwordError.textContent = pVal.message;
+                    password.classList.add('auth-input-invalid');
+                }
+                if (password.value !== confirm.value) {
+                    confirmError.textContent = 'Passwords do not match.';
+                    confirm.classList.add('auth-input-invalid');
+                }
+                if (!eVal.ok || !pVal.ok || password.value !== confirm.value) {
+                    return;
+                }
+
+                const res = registerCustomer(email.value, password.value, confirm.value);
+                if (!res.ok) {
+                    banner.textContent = res.message;
+                    banner.className = 'auth-banner auth-banner-error';
+                    banner.hidden = false;
+                    return;
+                }
+                banner.textContent = 'Account created. Redirecting to sign in…';
+                banner.className = 'auth-banner auth-banner-success';
+                banner.hidden = false;
+                setTimeout(function () {
+                    window.location.href = 'login.html';
+                }, 800);
+            });
+        })();
+    </script>
+</body>
+</html>

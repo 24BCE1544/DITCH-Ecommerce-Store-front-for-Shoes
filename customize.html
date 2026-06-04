@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize - DITCH Footwear</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">D</span>
+                <div class="logo-text">
+                    <span class="brand-name">DITCH</span>
+                    <span class="brand-subtitle">Footwear</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="customize.html" class="active">Customize</a></li>
+                <li><a href="repair.html">Repair & Warranty</a></li>
+                <li><a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">CUSTOMIZE YOUR PAIR</h1>
+            <p class="page-subtitle">Build the perfect shoe tailored to your style and needs</p>
+        </div>
+    </section>
+
+    <!-- Customization Section -->
+    <section class="customize-section">
+        <div class="container">
+            <div class="customize-layout">
+                <!-- Preview Section -->
+                <div class="customize-preview">
+                    <div class="preview-container">
+                        <div class="preview-shoe" id="shoePreview" style="position: relative; min-height: 250px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);">
+                            <img id="customShoeImg" src="shoes png/Urban_Runner-removebg-preview 1.png" alt="Custom Shoe" style="width: 100%; height: 100%; object-fit: contain; transform: rotate(-5deg); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0; filter: hue-rotate(0deg); max-width: 90%; max-height: 90%;">
+                            <div class="shoe-placeholder" id="customShoeDetails" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 4px; pointer-events: none; z-index: 10;">
+                                <div class="preview-details">
+                                    <p id="previewModel" style="margin:0; font-size:0.9rem; font-weight: bold;">Select a model to start</p>
+                                    <p id="previewColor" style="margin:0; font-size:0.8rem; opacity: 0.8;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="preview-price">
+                            <p class="price-label">Total Price</p>
+                            <p class="price-amount" id="totalPrice">$0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customization Form -->
+                <div class="customize-form">
+                    <form id="customizeForm">
+                        <!-- Model Selection -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">
+                                <span class="section-number">01</span>
+                                SELECT MODEL
+                            </h3>
+                            <div class="radio-group">
+                                <label class="radio-card">
+                                    <input type="radio" name="model" value="urban-runner" data-price="189" required>
+                                    <div class="radio-content">
+                                        <span class="radio-title">Urban Runner</span>
+                                        <span class="radio-subtitle">Lightweight performance</span>
+                                        <span class="radio-price">+ $189</span>
+                                    </div>
+                                </label>
+
+                                <label class="radio-card">
+                                    <input type="radio" name="model" value="classic-oxford" data-price="249">
+                                    <div class="radio-content">
+                                        <span class="radio-title">Classic Oxford</span>
+                                        <span class="radio-subtitle">Timeless elegance</span>
+                                        <span class="radio-price">+ $249</span>
+                                    </div>
+                                </label>
+
+                                <label class="radio-card">
+                                    <input type="radio" name="model" value="trail-blazer" data-price="219">
+                                    <div class="radio-content">
+                                        <span class="radio-title">Trail Blazer</span>
+                                        <span class="radio-subtitle">Rugged outdoor</span>
+                                        <span class="radio-price">+ $219</span>
+                                    </div>
+                                </label>
+
+                                <label class="radio-card">
+                                    <input type="radio" name="model" value="metro-boot" data-price="279">
+                                    <div class="radio-content">
+                                        <span class="radio-title">Metro Boot</span>
+                                        <span class="radio-subtitle">Urban sophistication</span>
+                                        <span class="radio-price">+ $279</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Primary Color -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">
+                                <span class="section-number">02</span>
+                                PRIMARY COLOR
+                            </h3>
+                            <div class="color-grid">
+                                <label class="color-option">
+                                    <input type="radio" name="primaryColor" value="black" required>
+                                    <span class="color-swatch" style="background: #1a1a1a;"></span>
+                                    <span class="color-name">Black</span>
+                                </label>
+
+                                <label class="color-option">
+                                    <input type="radio" name="primaryColor" value="white">
+                                    <span class="color-swatch" style="background: #f5f5f5;"></span>
+                                    <span class="color-name">White</span>
+                                </label>
+
+                                <label class="color-option">
+                                    <input type="radio" name="primaryColor" value="navy">
+                                    <span class="color-swatch" style="background: #1e3a5f;"></span>
+                                    <span class="color-name">Navy</span>
+                                </label>
+
+                                <label class="color-option">
+                                    <input type="radio" name="primaryColor" value="brown">
+                                    <span class="color-swatch" style="background: #6b4423;"></span>
+                                    <span class="color-name">Brown</span>
+                                </label>
+
+                                <label class="color-option">
+                                    <input type="radio" name="primaryColor" value="gray">
+                                    <span class="color-swatch" style="background: #808080;"></span>
+                                    <span class="color-name">Gray</span>
+                                </label>
+
+                                <label class="color-option">
+                                    <input type="radio" name="primaryColor" value="olive">
+                                    <span class="color-swatch" style="background: #556b2f;"></span>
+                                    <span class="color-name">Olive</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Material Selection -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">
+                                <span class="section-number">03</span>
+                                MATERIAL
+                            </h3>
+                            <div class="radio-group">
+                                <label class="radio-card">
+                                    <input type="radio" name="material" value="premium-leather" data-price="0" required>
+                                    <div class="radio-content">
+                                        <span class="radio-title">Premium Leather</span>
+                                        <span class="radio-subtitle">Full grain, naturally tanned</span>
+                                        <span class="radio-price">Included</span>
+                                    </div>
+                                </label>
+
+                                <label class="radio-card">
+                                    <input type="radio" name="material" value="vegan-leather" data-price="20">
+                                    <div class="radio-content">
+                                        <span class="radio-title">Vegan Leather</span>
+                                        <span class="radio-subtitle">Plant-based alternative</span>
+                                        <span class="radio-price">+ $20</span>
+                                    </div>
+                                </label>
+
+                                <label class="radio-card">
+                                    <input type="radio" name="material" value="recycled-textile" data-price="15">
+                                    <div class="radio-content">
+                                        <span class="radio-title">Recycled Textile</span>
+                                        <span class="radio-subtitle">100% recycled materials</span>
+                                        <span class="radio-price">+ $15</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Sole Type -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">
+                                <span class="section-number">04</span>
+                                SOLE TYPE
+                            </h3>
+                            <div class="select-group">
+                                <select name="soleType" id="soleType" required>
+                                    <option value="">Choose sole type</option>
+                                    <option value="rubber-grip" data-price="0">Rubber Grip (Standard)</option>
+                                    <option value="cushioned-comfort" data-price="30">Cushioned Comfort (+$30)</option>
+                                    <option value="trail-traction" data-price="40">Trail Traction (+$40)</option>
+                                    <option value="urban-hybrid" data-price="35">Urban Hybrid (+$35)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Size Selection -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">
+                                <span class="section-number">05</span>
+                                SIZE
+                            </h3>
+                            <div class="select-group">
+                                <select name="size" id="size" required>
+                                    <option value="">Choose your size</option>
+                                    <option value="7">US 7</option>
+                                    <option value="7.5">US 7.5</option>
+                                    <option value="8">US 8</option>
+                                    <option value="8.5">US 8.5</option>
+                                    <option value="9">US 9</option>
+                                    <option value="9.5">US 9.5</option>
+                                    <option value="10">US 10</option>
+                                    <option value="10.5">US 10.5</option>
+                                    <option value="11">US 11</option>
+                                    <option value="11.5">US 11.5</option>
+                                    <option value="12">US 12</option>
+                                    <option value="13">US 13</option>
+                                    <option value="14">US 14</option>
+                                    <option value="15">US 15</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Additional Features -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">
+                                <span class="section-number">06</span>
+                                ADDITIONAL FEATURES
+                            </h3>
+                            <div class="checkbox-group">
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="features" value="waterproof" data-price="45">
+                                    <div class="checkbox-content">
+                                        <span class="checkbox-title">Waterproof Coating</span>
+                                        <span class="checkbox-price">+ $45</span>
+                                    </div>
+                                </label>
+
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="features" value="insulated" data-price="35">
+                                    <div class="checkbox-content">
+                                        <span class="checkbox-title">Thermal Insulation</span>
+                                        <span class="checkbox-price">+ $35</span>
+                                    </div>
+                                </label>
+
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="features" value="orthotic" data-price="50">
+                                    <div class="checkbox-content">
+                                        <span class="checkbox-title">Custom Orthotic Insole</span>
+                                        <span class="checkbox-price">+ $50</span>
+                                    </div>
+                                </label>
+
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="features" value="reflective" data-price="25">
+                                    <div class="checkbox-content">
+                                        <span class="checkbox-title">Reflective Elements</span>
+                                        <span class="checkbox-price">+ $25</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Personalization -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">
+                                <span class="section-number">07</span>
+                                PERSONALIZATION (OPTIONAL)
+                            </h3>
+                            <div class="input-group">
+                                <label for="initials">Add Initials (Max 3 characters)</label>
+                                <input type="text" id="initials" name="initials" maxlength="3" placeholder="ABC">
+                                <p class="input-note">+ $15 for embossed initials</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-full">ADD TO CART</button>
+                            <button type="button" class="btn btn-secondary btn-full" id="resetCustomization">Start Over</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">D</span>
+                        <div class="logo-text">
+                            <span class="brand-name">DITCH</span>
+                            <span class="brand-subtitle">Footwear</span>
+                        </div>
+                    </div>
+                    <p class="footer-tagline">You ditch. They don't.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html">All Products</a></li>
+                        <li><a href="shop.html#runners">Runners</a></li>
+                        <li><a href="shop.html#casual">Casual</a></li>
+                        <li><a href="shop.html#formal">Formal</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="customize.html">Customization</a></li>
+                        <li><a href="repair.html">Repair Program</a></li>
+                        <li><a href="repair.html#warranty">Warranty Info</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#sustainability">Sustainability</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 DITCH Footwear. A Web Programming Project.</p>
+                <p class="disclaimer">This is an educational project demonstrating web programming concepts. Not a real commercial platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

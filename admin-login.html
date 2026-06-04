@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Area - DITCH Footwear</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page auth-page-dark">
+    <div class="container auth-page-inner">
+        <div class="auth-card auth-card-dark">
+            <div class="logo auth-logo-center">
+                <span class="logo-icon">D</span>
+                <div class="logo-text">
+                    <span class="brand-name">ADMIN</span>
+                    <span class="brand-subtitle">Portal</span>
+                </div>
+            </div>
+            <p class="auth-sub auth-sub-dark">Sign in only works after <a href="admin-signup.html" class="inline-link inline-link-dark">admin registration</a>.</p>
+            <p id="formBanner" class="auth-banner" hidden></p>
+            <form id="adminLoginForm" novalidate>
+                <div class="auth-field">
+                    <label for="email" class="label-dark">Admin email</label>
+                    <input type="email" id="email" name="email" autocomplete="username" required class="auth-input auth-input-dark">
+                    <span class="field-error field-error-on-dark" id="emailError" aria-live="polite"></span>
+                </div>
+                <div class="auth-field">
+                    <label for="password" class="label-dark">Password</label>
+                    <input type="password" id="password" name="password" autocomplete="current-password" required class="auth-input auth-input-dark">
+                    <span class="field-hint field-hint-dark">8+ characters with upper, lower, and a number.</span>
+                    <span class="field-error field-error-on-dark" id="passwordError" aria-live="polite"></span>
+                </div>
+                <button type="submit" class="btn btn-full auth-submit auth-btn-cyan">AUTHORIZE</button>
+            </form>
+            <p class="auth-footer auth-footer-dark">
+                <a href="admin-signup.html" class="inline-link inline-link-dark">First-time admin? Register</a><br>
+                <a href="login.html" class="inline-link inline-link-dark">Customer sign in</a> · <a href="index.html" class="inline-link inline-link-dark">Public site</a>
+            </p>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+    <script>
+        (function () {
+            const form = document.getElementById('adminLoginForm');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const banner = document.getElementById('formBanner');
+
+            attachEmailValidation(email, emailError);
+            attachPasswordValidation(password, passwordError);
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                banner.hidden = true;
+                emailError.textContent = '';
+                passwordError.textContent = '';
+
+                const eVal = validateEmailFormat(email.value);
+                const pVal = validatePasswordFormat(password.value);
+                if (!eVal.ok) {
+                    emailError.textContent = eVal.message;
+                    email.classList.add('auth-input-invalid');
+                }
+                if (!pVal.ok) {
+                    passwordError.textContent = pVal.message;
+                    password.classList.add('auth-input-invalid');
+                }
+                if (!eVal.ok || !pVal.ok) {
+                    return;
+                }
+
+                const res = loginAdmin(email.value, password.value);
+                if (!res.ok) {
+                    banner.textContent = res.message;
+                    banner.className = 'auth-banner auth-banner-error auth-banner-on-dark';
+                    banner.hidden = false;
+                    return;
+                }
+                window.location.href = 'admin.html';
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - DITCH</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles-new.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .contact-section {
+            min-height: 100vh;
+            background: #0A0A0A;
+            padding: 140px 4rem 4rem;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+        
+        .contact-info {
+            animation: fadeIn 1s ease-out 0.3s backwards;
+        }
+        
+        .contact-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .contact-item label {
+            font-size: 0.85rem;
+            color: #888;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .contact-item a,
+        .contact-item p {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            opacity: 0.6;
+        }
+        
+        .contact-form {
+            animation: fadeIn 1s ease-out 0.5s backwards;
+        }
+        
+        .contact-form h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: #888;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 1rem 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-bottom-color: #4ECDC4;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background: #4ECDC4;
+            color: #000;
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+        
+        .submit-btn:hover {
+            background: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+        }
+        
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav-new">
+        <div class="nav-container-new">
+            <div class="logo-new">
+                <div class="logo-icon-new"></div>
+                <span class="logo-text-new">DITCH</span>
+            </div>
+            <ul class="nav-links-new">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="shop.html">SHOP</a></li>
+                <li><a href="customize.html">CUSTOMIZE</a></li>
+                <li><a href="repair.html">REPAIR</a></li>
+                <li><a href="contact.html" class="active">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h1 class="contact-title">
+                GET IN<br>
+                TOUCH
+            </h1>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Let's Talk</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <label>Email</label>
+                            <a href="mailto:hello@ditch.com">hello@ditch.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <label>Phone</label>
+                            <a href="tel:+11234567890">+1 (123) 456-7890</a>
+                        </div>
+                        <div class="contact-item">
+                            <label>Address</label>
+                            <p>123 Innovation Street<br>San Francisco, CA 94103<br>United States</p>
+                        </div>
+                        <div class="contact-item">
+                            <label>Follow Us</label>
+                            <div style="display: flex; gap: 1.5rem;">
+                                <a href="#">Instagram</a>
+                                <a href="#">Twitter</a>
+                                <a href="#">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Send a Message</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
